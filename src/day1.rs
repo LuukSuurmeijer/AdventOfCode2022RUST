@@ -37,6 +37,7 @@ pub fn read_data(s: &str) -> Vec<Vec<usize>> {
 
 pub fn get_max(calories: &Vec<Vec<usize>>) -> usize {
 
+    // Iterate over the Elf's with map and sum their values, then take the max over the resulting iterator
     calories.into_iter()
     .map(|elf| elf.into_iter().sum::<usize>())
         .max()
@@ -44,6 +45,9 @@ pub fn get_max(calories: &Vec<Vec<usize>>) -> usize {
 }
 
 pub fn get_max_n(calories: &Vec<Vec<usize>>, n: usize) -> usize {
+
+    // Same principle as above, instead here we sort the resuling vector and sum the last N items
+
     let mut sums: Vec<usize> = calories.into_iter().map(|elf| elf.into_iter().sum::<usize>()).collect();
     
     sums.sort();
